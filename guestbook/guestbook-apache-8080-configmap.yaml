@@ -11,4 +11,3 @@ data:
         DocumentRoot /var/www/html
     </VirtualHost>
 
-  training-version: "v2"
