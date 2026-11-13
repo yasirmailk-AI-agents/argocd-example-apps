@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: day13-prune-test
-data:
-  purpose: "Learning Argo CD Prune"
