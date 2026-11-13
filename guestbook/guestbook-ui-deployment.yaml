@@ -14,7 +14,21 @@ spec:
         app: guestbook-ui
     spec:
       containers:
-        - image: gcr.io/google-samples/gb-frontend:v5
-          name: guestbook-ui
+        - name: guestbook-ui
+          image: gcr.io/google-samples/gb-frontend:v5
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+          volumeMounts:
+            - name: apache-8080-config
+              mountPath: /etc/apache2/ports.conf
+              subPath: ports.conf
+              readOnly: true
+            - name: apache-8080-config
+              mountPath: /etc/apache2/sites-available/000-default.conf
+              subPath: 000-default.conf
+              readOnly: true
+
+      volumes:
+        - name: apache-8080-config
+          configMap:
+            name: guestbook-apache-8080
