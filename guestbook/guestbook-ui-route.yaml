@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: guestbook-ui-route
+spec:
+  host: guestbook-ui-route-motorola-gitops-lab.apps-crc.testing
+  to:
+    kind: Service
+    name: guestbook-ui
+    weight: 100
+  port:
+    targetPort: 8080
